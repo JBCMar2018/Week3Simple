@@ -41,9 +41,20 @@ public class Main {
             {
 
                 //Ask for book information
-                aBook = new Book();
+                aBook = new Book(); //Using this constructor, the book is available by default
+
                 System.out.println("Enter title:");
                 aBook.setTitle(input.nextLine());
+
+                System.out.println("Enter author:");
+                aBook.setAuthor(input.nextLine());
+
+                System.out.println("Enter Year of Publication:");
+                aBook.setYearPub(input.nextInt());
+                input.nextLine();
+
+                System.out.println("Enter ISBN number:");
+                aBook.setISBN(input.nextLine());
                 library.add(aBook);
 
             }
@@ -72,6 +83,29 @@ public class Main {
             }
 
             else if(menuSelect==4)
+            {
+                //Borrow a book
+                System.out.println("Enter title:");
+                theTitle = input.nextLine();
+                Book toBorrow = new Book();
+
+                for (Book eachBook:library)
+                {
+                    //Pull the book whose title matches the title off the shelf
+                    if(theTitle.equalsIgnoreCase(eachBook.getTitle()))
+                    {
+                        toBorrow = eachBook;
+                    }
+                }
+                //Borrow the book
+                toBorrow.setAvailable("Available");
+
+                //Make sure the library's records are updated
+                library.set(library.indexOf(toBorrow),toBorrow);
+
+            }
+
+            else if(menuSelect==5)
             {
                 stopasking = true;
             }
