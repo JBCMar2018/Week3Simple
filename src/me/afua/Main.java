@@ -111,17 +111,17 @@ public class Main {
                 //Return a book
                 System.out.println("Enter title:");
                 theTitle = input.nextLine();
-                Book toBorrow = new Book();
+                Book toReturn = new Book();
 
                 for (Book eachBook:library)
                 {
                     //Pull the book whose title matches the title off the shelf
                     if(theTitle.equalsIgnoreCase(eachBook.getTitle()))
                     {
-                        toBorrow = eachBook;
+                        toReturn = eachBook;
                     }
                 }
-                if(toBorrow.getAvailable().equalsIgnoreCase("Available"))
+                if(toReturn.getAvailable().equalsIgnoreCase("Available"))
                 {
                     System.out.println("This book is already available");
                 }
@@ -129,11 +129,13 @@ public class Main {
                 //Return the book
                 else
                 {
-                    toBorrow.setAvailable("Available");
+
+                    toReturn.setAvailable("Available");
+                    System.out.println(toReturn.getTitle()+" has been returned");
                 }
 
                 //Make sure the library's records are updated
-                library.set(library.indexOf(toBorrow),toBorrow);
+                library.set(library.indexOf(toReturn),toReturn);
 
             }
 
