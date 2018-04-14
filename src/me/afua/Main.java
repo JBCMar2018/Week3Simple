@@ -62,8 +62,21 @@ public class Main {
 
             else if(menuSelect==3)
             {
+                System.out.println("**** Available Books ****");
+                for (Book eachBook:library)
+                {
+                    if(eachBook.getAvailable().equalsIgnoreCase("Available"))
+                    {
+                        System.out.println("Title:"+eachBook.getTitle());
+                        System.out.println("Author:"+eachBook.getAuthor());
+                        System.out.println("Year of Publication:"+eachBook.getYearPub());
+                        System.out.println("Availability:"+eachBook.getAvailable());
+                        System.out.println("ISBN:"+eachBook.getISBN());
+                        System.out.println();
+                    }
+                }
                 //Borrow a book
-                System.out.println("Enter title:");
+                System.out.println("Enter title of book to borrow:");
                 theTitle = input.nextLine();
                 Book toBorrow = new Book();
 
