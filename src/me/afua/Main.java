@@ -64,7 +64,7 @@ public class Main {
                         }
                 }
                 //Borrow the book
-                toBorrow.setAvailable("borrowed");
+                toBorrow.setAvailable("Borrowed");
 
                 //Make sure the library's records are updated
                 library.set(library.indexOf(toBorrow),toBorrow);

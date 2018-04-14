@@ -9,7 +9,7 @@ public class Book {
     private String ISBN;
 
     public Book() {
-        available="available";
+        available="Available";
     }
 
     public long getId() {
