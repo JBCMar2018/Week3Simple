@@ -4,8 +4,13 @@ public class Book {
     private long id;
     private String title;
     private String author;
+    private String available;
     private int yearPub;
     private String ISBN;
+
+    public Book() {
+        available="available";
+    }
 
     public long getId() {
         return id;
@@ -45,5 +50,13 @@ public class Book {
 
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
+    }
+
+    public String getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(String available) {
+        this.available = available;
     }
 }
