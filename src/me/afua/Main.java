@@ -126,7 +126,7 @@ public class Main {
                     System.out.println("This book is already available");
                 }
 
-                //Borrow the book
+                //Return the book
                 else
                 {
                     toBorrow.setAvailable("Available");
