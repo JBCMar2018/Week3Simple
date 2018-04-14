@@ -19,7 +19,8 @@ public class Main {
             System.out.println("1. List Books");
             System.out.println("2. Add a Book");
             System.out.println("3. Borrow a Book");
-            System.out.println("4. Quit");
+            System.out.println("4. Return a Book");
+            System.out.println("5. Quit");
 
             System.out.println("Enter a number to continue");
             menuSelect = input.nextInt();
@@ -74,8 +75,18 @@ public class Main {
                             toBorrow = eachBook;
                         }
                 }
+                //Check to see if the book is available
+                if(toBorrow.getAvailable().equalsIgnoreCase("Borrowed"))
+                {
+                    System.out.println("This book has already been borrowed");
+                }
+
                 //Borrow the book
-                toBorrow.setAvailable("Borrowed");
+                else
+                {
+                    toBorrow.setAvailable("Borrowed");
+                }
+
 
                 //Make sure the library's records are updated
                 library.set(library.indexOf(toBorrow),toBorrow);
@@ -84,7 +95,7 @@ public class Main {
 
             else if(menuSelect==4)
             {
-                //Borrow a book
+                //Return a book
                 System.out.println("Enter title:");
                 theTitle = input.nextLine();
                 Book toBorrow = new Book();
@@ -97,8 +108,16 @@ public class Main {
                         toBorrow = eachBook;
                     }
                 }
+                if(toBorrow.getAvailable().equalsIgnoreCase("Available"))
+                {
+                    System.out.println("This book is already available");
+                }
+
                 //Borrow the book
-                toBorrow.setAvailable("Available");
+                else
+                {
+                    toBorrow.setAvailable("Available");
+                }
 
                 //Make sure the library's records are updated
                 library.set(library.indexOf(toBorrow),toBorrow);
